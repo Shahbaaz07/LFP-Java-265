@@ -1,24 +1,35 @@
-import java.util.Random;
+import java.util.Scanner;
 
-public class Main{
+public class Main {
     public static void main(String[] args) {
-        Random rand = new Random();
-        int attendance = rand.nextInt(3);
-
-        if (attendance == 0) {
-            System.out.println("Employee is absent");
-        } else if (attendance == 1){
-            int wage = 500;
-            int workingHours = 8;
-            int totalWage = wage * workingHours;
-            System.out.println("Employee is full time");
-            System.out.println("Wage per day is: Rs. " +totalWage);
-        } else{
-            int wage = 200;
-            int workingHours = 4;
-            int totalWage = wage * workingHours;
-            System.out.println("Employee is part-time");
-            System.out.println("Wage per day is: Rs. " +totalWage);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter employment type( 1 for full time 2 for part time");
+       int employmentType = sc.nextInt();
+        System.out.println("Enter number of hours worked:");
+        int hoursWorked = sc.nextInt();
+        int wagePerHour = 20;
+        int dailyWage= 0;
+        switch (employmentType) {
+            case 1:
+                if (hoursWorked == 8) {
+                    dailyWage = wagePerHour * hoursWorked;
+                } else {
+                    System.out.println("Error: Full time employees must work 8 hours per day.");
+                }
+                break;
+            case 2: // part time
+                if (hoursWorked == 4) {
+                    dailyWage = wagePerHour * hoursWorked;
+                } else {
+                    System.out.println("Error: Part time employees must work 4 hours per day.");
+                }
+                break;
+            default:
+                System.out.println("Error: Invalid employment type.");
         }
+
+        System.out.println("Daily wage: " + dailyWage);
+
+        sc.close();
     }
 }
