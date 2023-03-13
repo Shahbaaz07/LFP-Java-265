@@ -8,9 +8,9 @@ public class EmployeeWage {
 
         System.out.println("Enter number of hours worked:");
         double hoursWorked = sc.nextDouble();
-        // Wage per day
+
         double dailyWage = hourlyRate * hoursWorked;
-        // wage per month
+
         double wagepermonth = dailyWage * 20;
         System.out.println("Wages for a month: " +wagepermonth);
 
